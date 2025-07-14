@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import RouterLink from "next/link";
 import { Box, Button, Stack, SxProps, Typography } from "@mui/material";

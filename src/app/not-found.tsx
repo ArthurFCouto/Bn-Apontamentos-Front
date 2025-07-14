@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Button, Stack, SxProps, Typography } from "@mui/material";
 import RouterLink from "next/link";
 import { paths } from "@/paths";
