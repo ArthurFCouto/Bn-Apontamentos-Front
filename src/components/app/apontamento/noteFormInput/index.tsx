@@ -89,7 +89,7 @@ const NoteFormInput = ({
 
       closeModal("Registro incluído com sucesso");
     },
-    [setIsLoading, idTrecho, setError, errors, closeModal]
+    [setIsLoading, idTrecho, setError, closeModal]
   );
 
   return (

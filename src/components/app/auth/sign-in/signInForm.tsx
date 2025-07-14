@@ -1,11 +1,10 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import RouterLink from "next/link";
-import { useRouter } from "next/navigation";
+import { useUser } from "@/hooks/useUser";
+import { paths } from "@/paths";
+import { authClient } from "@/services/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, useForm } from "react-hook-form";
-import { z as zod } from "zod";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Alert,
   Button,
@@ -18,10 +17,11 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { paths } from "@/paths";
-import { authClient } from "@/services/auth";
-import { useUser } from "@/hooks/useUser";
+import RouterLink from "next/link";
+import { useRouter } from "next/navigation";
+import { useCallback, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { z as zod } from "zod";
 
 const schema = zod.object({
   matricula: zod
@@ -173,6 +173,8 @@ const SignInForm = () => {
         <Typography component="span" sx={{ fontWeight: 700 }} variant="inherit">
           testes.
         </Typography>
+        <br />
+        Utilize uma matricula de 8 números e uma senha qualquer.
       </Alert>
     </Stack>
   );

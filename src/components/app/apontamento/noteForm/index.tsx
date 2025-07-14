@@ -13,7 +13,7 @@ import {
   DialogTitle,
   Paper,
 } from "@mui/material";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import NoteFormInfoCable from "../noteFormInfoCable";
 import NoteFormInput from "../noteFormInput";
 import NoteFormSelect from "../noteFormSelect";
@@ -44,23 +44,22 @@ const NoteForm = ({
     setDisabledInput(true);
   };
 
-  const getCuttingPlane = useCallback(
-    () => async () => {
-      setIsLoading(true);
-      const { data, error } =
-        await cuttingClient.getAllWithCableIdentification();
-      setIsLoading(false);
-      if (error === 401 || error === 403 || error === 405) {
-        await authClient.signOut();
-        onClose();
-      } else if (data) {
-        setCuttingPlanes(data);
-      }
-    },
-    [setIsLoading, onClose, setCuttingPlanes]
-  );
+  const getCuttingPlane = async () => {
+    setIsLoading(true);
+    const { data, error } = await cuttingClient.getAllWithCableIdentification();
+    setIsLoading(false);
+    if (error === 401 || error === 403 || error === 405) {
+      await authClient.signOut();
+      onClose();
+    } else if (data) {
+      setCuttingPlanes(data);
+    }
+  };
 
   const getCableInformation = async (id: string) => {
+    if (!Boolean(id)) {
+      return;
+    }
     setIsLoading(true);
     const { data, error } =
       await cableInformationClient.getBaseCableInformation(id);
@@ -91,8 +90,10 @@ const NoteForm = ({
   };
 
   useEffect(() => {
-    getCuttingPlane();
-  }, [getCuttingPlane]);
+    if (open) {
+      getCuttingPlane();
+    }
+  }, [open]);
 
   return (
     <Dialog open={open} onClose={onClose}>

@@ -11,8 +11,6 @@ class NotationClient {
         params: { token: token },
       });
 
-      console.log("Response", response);
-
       if (response.status === 200 && Array.isArray(response.data)) {
         return { data: response.data };
       }
