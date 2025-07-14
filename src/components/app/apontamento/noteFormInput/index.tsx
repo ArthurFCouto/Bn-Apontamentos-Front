@@ -1,9 +1,8 @@
 "use client";
 
-import { useCallback } from "react";
+import { notationClient } from "@/services/notation";
+import { NotationSubmit } from "@/types/notation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, useForm } from "react-hook-form";
-import { z as zod } from "zod";
 import {
   Alert,
   Button,
@@ -14,8 +13,9 @@ import {
   OutlinedInput,
   Typography,
 } from "@mui/material";
-import { notationClient } from "@/services/notation";
-import { NotationSubmit } from "@/types/notation";
+import { useCallback } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { z as zod } from "zod";
 
 const schema = zod.object({
   tag: zod.string().min(1, { message: "Informe a tag real" }),
@@ -89,7 +89,7 @@ const NoteFormInput = ({
 
       closeModal("Registro incluído com sucesso");
     },
-    [setIsLoading, setError, errors, closeModal]
+    [setIsLoading, idTrecho, setError, errors, closeModal]
   );
 
   return (

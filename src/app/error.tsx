@@ -1,12 +1,11 @@
 "use client";
 
-import RouterLink from "next/link";
-import type { Metadata } from "next";
-import { Box, Button, Stack, SxProps, Typography } from "@mui/material";
-import { ArrowLeft } from "@mui/icons-material";
-import { paths } from "@/paths";
-import MainNav from "@/components/shared/mainNav";
 import AuthGuard from "@/components/app/auth/authGuard";
+import MainNav from "@/components/shared/mainNav";
+import { paths } from "@/paths";
+import { ArrowLeft } from "@mui/icons-material";
+import { Box, Button, Stack, SxProps, Typography } from "@mui/material";
+import RouterLink from "next/link";
 
 const styleMain: SxProps = {
   alignItems: "center",
@@ -18,9 +17,7 @@ const styleMain: SxProps = {
 
 const styleStack: SxProps = { alignItems: "center", maxWidth: "md" };
 
-export const metadata = { title: `Internal Server Error` } satisfies Metadata;
-
-export default async function Error() {
+export default async function GlobalError() {
   return (
     <>
       <MainNav />

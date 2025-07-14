@@ -1,10 +1,7 @@
-"use client";
-
-import type { Metadata } from "next";
-import RouterLink from "next/link";
-import { Box, Button, Stack, SxProps, Typography } from "@mui/material";
-import { Login } from "@mui/icons-material";
 import { paths } from "@/paths";
+import { Login } from "@mui/icons-material";
+import { Box, Button, Stack, SxProps, Typography } from "@mui/material";
+import RouterLink from "next/link";
 
 const styleMain: SxProps = {
   alignItems: "center",
@@ -15,8 +12,6 @@ const styleMain: SxProps = {
 };
 
 const styleStack: SxProps = { alignItems: "center", maxWidth: "md" };
-
-export const metadata = { title: `Unauthorized` } satisfies Metadata;
 
 export default function Unauthorized() {
   return (

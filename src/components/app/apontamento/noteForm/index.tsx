@@ -1,7 +1,9 @@
 "use client";
 
 import { authClient } from "@/services/auth";
+import { cableInformationClient } from "@/services/cableInformation";
 import { cuttingClient } from "@/services/cuttingPlane";
+import { BaseCableInformation } from "@/types/cableInformation";
 import { CuttingPlaneWithCable } from "@/types/cuttingPlane";
 import {
   Box,
@@ -11,12 +13,10 @@ import {
   DialogTitle,
   Paper,
 } from "@mui/material";
-import { useEffect, useState } from "react";
-import NoteFormSelect from "../noteFormSelect";
-import { BaseCableInformation } from "@/types/cableInformation";
-import { cableInformationClient } from "@/services/cableInformation";
+import { useCallback, useEffect, useState } from "react";
 import NoteFormInfoCable from "../noteFormInfoCable";
 import NoteFormInput from "../noteFormInput";
+import NoteFormSelect from "../noteFormSelect";
 
 export interface NoteFormProps {
   open: boolean;
@@ -29,7 +29,7 @@ const NoteForm = ({
   onClose = () => {},
   setAlert,
 }: NoteFormProps) => {
-  const [cuttingPlanes, setcuttingPlanes] = useState<CuttingPlaneWithCable[]>(
+  const [cuttingPlanes, setCuttingPlanes] = useState<CuttingPlaneWithCable[]>(
     []
   );
   const [planeIdSelected, setPlaneIdSelected] = useState<string>("");
@@ -44,17 +44,21 @@ const NoteForm = ({
     setDisabledInput(true);
   };
 
-  const getCuttingPlane = async () => {
-    setIsLoading(true);
-    const { data, error } = await cuttingClient.getAllWithCableIdentification();
-    setIsLoading(false);
-    if (error === 401 || error === 403 || error === 405) {
-      await authClient.signOut();
-      onClose();
-    } else if (data) {
-      setcuttingPlanes(data);
-    }
-  };
+  const getCuttingPlane = useCallback(
+    () => async () => {
+      setIsLoading(true);
+      const { data, error } =
+        await cuttingClient.getAllWithCableIdentification();
+      setIsLoading(false);
+      if (error === 401 || error === 403 || error === 405) {
+        await authClient.signOut();
+        onClose();
+      } else if (data) {
+        setCuttingPlanes(data);
+      }
+    },
+    [setIsLoading, onClose, setCuttingPlanes]
+  );
 
   const getCableInformation = async (id: string) => {
     setIsLoading(true);

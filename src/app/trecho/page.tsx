@@ -1,9 +1,9 @@
-import RouterLink from "next/link";
-import { Box, Button, Stack, SxProps, Typography } from "@mui/material";
-import MainNav from "@/components/shared/mainNav";
-import { Home } from "@mui/icons-material";
-import { paths } from "@/paths";
 import AuthGuard from "@/components/app/auth/authGuard";
+import MainNav from "@/components/shared/mainNav";
+import { paths } from "@/paths";
+import { Home } from "@mui/icons-material";
+import { Box, Button, Stack, SxProps, Typography } from "@mui/material";
+import RouterLink from "next/link";
 
 const styleMain: SxProps = {
   alignItems: "center",

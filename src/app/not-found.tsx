@@ -1,11 +1,10 @@
 "use client";
 
-import { Box, Button, Stack, SxProps, Typography } from "@mui/material";
-import RouterLink from "next/link";
+import MainNav from "@/components/shared/mainNav";
 import { paths } from "@/paths";
 import { ArrowLeft } from "@mui/icons-material";
-import type { Metadata } from "next";
-import MainNav from "@/components/shared/mainNav";
+import { Box, Button, Stack, SxProps, Typography } from "@mui/material";
+import RouterLink from "next/link";
 
 const styleMain: SxProps = {
   alignItems: "center",
@@ -16,8 +15,6 @@ const styleMain: SxProps = {
 };
 
 const styleStack: SxProps = { alignItems: "center", maxWidth: "md" };
-
-export const metadata = { title: `Not found` } satisfies Metadata;
 
 export default async function NotFound() {
   return (
