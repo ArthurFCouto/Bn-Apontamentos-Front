@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import type { CuttingPlaneWithCable } from "@/types/cuttingPlane";
 import axios from "axios";
 

@@ -1,4 +1,5 @@
-import { useUser } from "@/hooks/useUser";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import type { User } from "@/types/user";
 import axios from "axios";
 
@@ -43,9 +44,9 @@ class AuthClient {
       return {
         error: "Usuário não autenticado.",
       };
-    } catch (error) {
+    } catch (error: any) {
       return {
-        error: "Não foi possível recuperar os dados do usuário.",
+        error: `Não foi possível recuperar os dados do usuário. + ${error.message}`,
       };
     }
   }

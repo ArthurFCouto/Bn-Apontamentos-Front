@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import type { Notation, NotationSubmit } from "@/types/notation";
 import axios from "axios";
 

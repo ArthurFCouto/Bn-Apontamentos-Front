@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { BaseCableInformation } from "@/types/cableInformation";
 import axios from "axios";
 

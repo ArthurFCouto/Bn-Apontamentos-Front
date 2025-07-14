@@ -1,14 +1,5 @@
 import { BaseCableInformation } from "@/types/cableInformation";
-import {
-  Box,
-  FormControl,
-  FormHelperText,
-  Input,
-  InputLabel,
-  OutlinedInput,
-  SxProps,
-  TextField,
-} from "@mui/material";
+import { Box, FormControl, SxProps, TextField } from "@mui/material";
 
 const styleForm: SxProps = {
   display: "grid",

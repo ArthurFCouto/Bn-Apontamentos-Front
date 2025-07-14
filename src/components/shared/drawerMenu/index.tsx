@@ -22,8 +22,6 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  useMediaQuery,
-  useTheme,
 } from "@mui/material";
 import { useAppThemeContext } from "@/contexts/theme";
 import { paths } from "@/paths";
@@ -93,8 +91,6 @@ export interface DrawerMenuProps {
 const DrawerMenu = ({ handleClose, open }: DrawerMenuProps) => {
   const router = useRouter();
   const { themeName, toggleTheme } = useAppThemeContext();
-  const theme = useTheme();
-  const smUpScreen = useMediaQuery(theme.breakpoints.up("sm"));
 
   const onClose = () => {
     handleClose(!open);

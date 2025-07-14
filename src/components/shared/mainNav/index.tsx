@@ -15,7 +15,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { Menu, Notifications } from "@mui/icons-material";
+import { Notifications } from "@mui/icons-material";
 import { useUser } from "@/hooks/useUser";
 import { usePopover } from "@/hooks/usePopover";
 
@@ -39,8 +39,6 @@ const styleStack: SxProps = {
 
 const MainNav = () => {
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
-  const [notifications, setNotifications] = useState<number>(0);
-
   const { user } = useUser();
   const userPopover = usePopover<HTMLDivElement>();
   const theme = useTheme();
@@ -51,7 +49,7 @@ const MainNav = () => {
       <Box component="header" marginLeft={smUpScreen ? 8 : 0} sx={styleHeader}>
         <Stack direction="row" spacing={2} sx={styleStack}>
           <Tooltip title="Notificações">
-            <Badge badgeContent={notifications} color="success" variant="dot">
+            <Badge badgeContent={0} color="success" variant="dot">
               <IconButton>
                 <Notifications />
               </IconButton>

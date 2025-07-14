@@ -1,15 +1,8 @@
 "use client";
 
-import {
-  Box,
-  Button,
-  LinearProgress,
-  Snackbar,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Button, LinearProgress, Stack, Typography } from "@mui/material";
 import { Add, FilterList, Update } from "@mui/icons-material";
-import { NotationTable } from "@/components/apontamento/noteTable";
+import { NotationTable } from "@/components/app/apontamento/noteTable";
 import AuthGuard from "@/components/app/auth/authGuard";
 import MainNav from "@/components/shared/mainNav";
 import { useEffect, useState } from "react";
@@ -17,7 +10,7 @@ import { Notation } from "@/types/notation";
 import { notationClient } from "@/services/notation";
 import { authClient } from "@/services/auth";
 import MainAlert, { MainAlertProps } from "@/components/shared/mainAlert";
-import NoteForm, { NoteFormProps } from "@/components/apontamento/noteForm";
+import NoteForm, { NoteFormProps } from "@/components/app/apontamento/noteForm";
 
 export default function Apontamento() {
   const [isLoading, setIsLoading] = useState<boolean>(true);

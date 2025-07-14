@@ -123,7 +123,7 @@ export function NotationTable({
         </Table>
       </Box>
       <Divider />
-      {/*<TablePagination
+      <TablePagination
         component="div"
         count={count}
         onPageChange={() => {}}
@@ -131,7 +131,7 @@ export function NotationTable({
         page={page}
         rowsPerPage={rowsPerPage}
         rowsPerPageOptions={[5, 10, 25]}
-      />*/}
+      />
     </Card>
   );
 }

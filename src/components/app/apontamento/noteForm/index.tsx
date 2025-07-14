@@ -8,7 +8,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
   Paper,
 } from "@mui/material";
@@ -89,7 +88,7 @@ const NoteForm = ({
 
   useEffect(() => {
     getCuttingPlane();
-  }, []);
+  }, [getCuttingPlane]);
 
   return (
     <Dialog open={open} onClose={onClose}>

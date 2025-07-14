@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { AxiosError } from "axios";
 
 export default function InterceptiorError(error: AxiosError) {
